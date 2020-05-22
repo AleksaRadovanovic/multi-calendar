@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Montenegro team</title>
+    
+    <script type="text/javascript" src="js\downloaded\jquery.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>  
+    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>     
+    <link rel="stylesheet" type="text/css" href="./dist/scc-style.css">
+    
+    <script type="text/javascript" src="js\downloaded\html2canvas.min.js"></script> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <script src="./dist/SccMainClass.js"></script>    
+  </head>
+  <body>
+    
+    <div >
+        <div id="scc-container" ></div>        
+    </div>
+    <script>
+        var sccPage = new Scc.SccMainClass();
+        $(document).ready(_init);
+        
+        function _init() {                        
+            sccPage.id = 'scc-container';
+            sccPage.init();
+        }
+    </script>
+    <!-- Modal Structure <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->    
+  </body>
+</html>

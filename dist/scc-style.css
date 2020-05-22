@@ -1,0 +1,151 @@
+body {
+  background-color: #f9f9f9;
+}
+.frame {
+  border: 2px solid red;
+}
+.bframe {
+  border: 1px solid blue;
+}
+@media screen and (max-width: 670px) {
+  header {
+    min-height: 500px;
+  }
+}
+.scc-card_image img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.parallax img {
+  display: inherit !important;
+}
+.scc-container {
+  width: 100%;
+  height: 100%;
+}
+.scc-graph-content-left {
+  height: 150px;
+}
+.scc-graph-content-right {
+  height: 150px;
+}
+.scc-graph-items {
+  padding: 20px 10%;
+}
+.scc-cards-section {
+  width: 100%;
+  position: relative;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: rgba(216, 162, 12, 0.452);
+}
+.scc-cards-container {
+  display: flex;
+  /* establish flex container */
+  flex-direction: column;
+  /* make main axis vertical */
+  justify-content: center;
+  /* center items vertically, in this case */
+  align-items: center;
+}
+.scc-cards-content {
+  width: 80%;
+}
+.scc-card-btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+.scc-card-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.scc-cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.scc-cards_item {
+  display: flex;
+  padding: 1rem;
+}
+.scc-card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.scc-card_content {
+  padding: 1rem;
+  background-color: #11afa2;
+}
+.scc-card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+.scc-card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+@media (min-width: 40rem) {
+  .scc-cards_item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .scc-cards_item {
+    width: 33.3333%;
+  }
+}
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+/*month and day animation*/
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*.nx-calendar-animated-cell{
+    animation-name: fadeAnimation;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+}*/
+.no_timeline_selection {
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
