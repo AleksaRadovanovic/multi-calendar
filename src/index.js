@@ -1,7 +1,7 @@
 //require('./nextcallendar.less')
-import './scc-style.less';
+import './nextcalendar.less';
 
-import App from './App.js'
-import SccMainClass from './SccMainClass.js'
+import NxCalendar from './NxCalendar.js'
+import NextCalendarClass from './NextCalendarClass.js'
 
-export { App,SccMainClass}
+export { NxCalendar,NextCalendarClass}

@@ -2,39 +2,94 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Montenegro team</title>
+    <title>Calendar Portal</title>
     
     <script type="text/javascript" src="js\downloaded\jquery.js"></script>    
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
-
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>  
-    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
-    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>     
-    <link rel="stylesheet" type="text/css" href="./dist/scc-style.css">
     
-    <script type="text/javascript" src="js\downloaded\html2canvas.min.js"></script> 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./dist/next-calendar.css">
+    <script src="./dist/NextCalendarClass.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-    <script src="./dist/SccMainClass.js"></script>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
+    <script >
+        $(document).ready(function() {
+          $('#dugme').click(function () {
+              calendar.showMonths = $('#months').val();
+              calendar.startMonth = moment('2021/0'+$('#start').val()+'/02');
+              calendar.matrix = { x: parseInt($('#x').val()), y: parseInt($('#y').val()) };
+              calendar.init();
+            })
+        });
+    </script> 
   </head>
   <body>
-    
-    <div >
-        <div id="scc-container" ></div>        
+    <div style="display: flex; justify-content: center;  height: 100%; overflow: auto; padding-bottom: 1px; padding-top: 20px; background-color: rgb(255, 255, 255);" >
+      <div style="width: 70% !important">
+        <div style="display: flex; width: 50%;align-items: center; justify-content: center; margin: auto;">
+          <div style="margin-right: 15px;">
+            <label for="start">Start month</label>
+            <input name="start" id="start" type="text" placeholder="" value="1"/>
+          </div>
+          <div style="margin-right: 15px;">
+            <label for="months">Max months</label>
+            <input name="months" id="months" type="text" placeholder="" value="12"/>
+          </div>
+          <div style="margin-right: 15px;">
+            <label for="months">Columns</label>
+            <input name="x" id="x" type="text" placeholder="" value="3"/>
+          </div>
+          <div>
+            <label for="months">Rows</label>
+            <input name="y" id="y" type="text" placeholder="" value="3"/>
+          </div>
+          <div style="width: 200px; padding-left: 20px;">
+            <button id="dugme" style="padding: 5px; background-color: rgb(0, 153, 255); width: 90px; border-radius: 5px; border: 1px solid gray; color: #fff;">Save</button>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center; align-items: center; padding-bottom: 60px; font-weight: bold;">
+        </div>
+        <div id="nx-calendar-container"></div>        
+      </div>
+      
     </div>
+    
+   
     <script>
-        var sccPage = new Scc.SccMainClass();
+        var calendar = new NxCalendarLib.NextCalendarClass();
         $(document).ready(_init);
         
         function _init() {                        
-            sccPage.id = 'scc-container';
-            sccPage.init();
+            calendar.id = 'nx-calendar-container';
+            calendar.labels = ['Lu', 'Ma','Me', 'Gi', 'Ve', 'Sa', 'Do'];
+            calendar.startMonth = moment('2021/01/01');
+            calendar.matrix = { x: 3, y: 3};
+            calendar.showMonths = 12;
+            calendar.left_click_callbck = _leftClickCallBack;
+            calendar.right_click_callbck = _rightClickCallBack;
+            calendar.markedDays = {
+              [moment('2021/04/01').format('YYYY/MM/DD')] : { color: '#02bbd5'},
+              [moment('2021/04/02').format('YYYY/MM/DD')] : { color: '#1da13ff0', disable: true},
+              [moment('2021/04/03').format('YYYY/MM/DD')] : { color: '#1da13ff0', disable: true},
+            };
+            calendar.selectedDays = [moment('2021/04/01').format('DD/MM/YYYY')];
+            calendar.disabledDays = [moment('2021/04/02').format('DD/MM/YYYY')];
+            
+            calendar.init();
         }
+
+        function _leftClickCallBack(el){
+            console.log(' < ',el);
+        }
+
+        function _rightClickCallBack(el){
+            console.log(' > ', el);
+        }
+ 
     </script>
-    <!-- Modal Structure <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->    
+       
   </body>
 </html>

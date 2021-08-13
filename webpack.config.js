@@ -2,13 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-        filename: 'SccMainClass.js',
-        path: path.resolve(__dirname, 'dist'), 
-        libraryTarget: 'var',
-        library: 'Scc'
-    },
+    entry: './src/index.js',
+    output: {
+            filename: 'NextCalendarClass.js',
+            path: path.resolve(__dirname, 'dist'), 
+            libraryTarget: 'var',
+            library: 'NxCalendarLib'
+        },
     module: {
         rules: [
             {
@@ -30,7 +30,7 @@ module.exports = {
     }, 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'scc-style.css',
+            filename: 'next-calendar.css',
         })
     ]
 };
